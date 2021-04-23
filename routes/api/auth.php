@@ -24,18 +24,39 @@ use Illuminate\Support\Facades\Route;
  */
 Route::post('oauth/token', [AccessTokenController::class, 'issueToken']);
 
-Route::post('/login', [AuthController::class, 'login']);
-
 /**
- * @api {post} /register Cadastrar Usuário
- * @apiDescription Cadastra um novo usuário
- * @apiName CadastrarUsuario
+ * @api {post} /login Login
+ * @apiDescription Entra no sistema
+ * @apiName Login
  * @apiGroup Auth
  * @apiVersion 0.0.1
  *
- * @apiUse ApiAccessToken
+ * @apiParam {String} email Email do usuário.
+ * @apiParam {String} password Senha do usuário.
  *
- * @apiPermission users.create
+ * @apiSuccess {String} name Nome do usuário.
+ * @apiSuccess {String} gender Sexo do usuário. (M, F)
+ * @apiSuccess {String} email Email do usuário.
+ * @apiSuccess {String} avatar Avatar do usuário.
+ * @apiSuccess {String} phone Celular do usuário.
+ * @apiSuccess {String} origin Origem do registro do usuário.
+ * @apiSuccess {String} status Status do usuário.
+ * @apiSuccess {String} horoscope Horóscopo do usuário. (Signo em minúsculo e sem acentuação, exemplo: leao)
+ * @apiSuccess {String} team Nome do time do usuário. (flamengo, fluminense, botafogo, vasco)
+ * @apiSuccess {Timestamp} created_at Momento de criação do usuário.
+ * @apiSuccess {Object} auth Informações de autenticação.
+ * @apiSuccess {String} auth.access_token Token de acesso
+ * @apiSuccess {String} auth.token_type Tipo do token
+ * @apiSuccess {Number} auth.expires_in Tempo de validade do token
+ */
+Route::post('login', [AuthController::class, 'login']);
+
+/**
+ * @api {post} /register Registrar Usuário
+ * @apiDescription Registra um novo usuário
+ * @apiName Registrar
+ * @apiGroup Auth
+ * @apiVersion 0.0.1
  *
  * @apiParam {String} name Nome do usuário.
  * @apiParam {String} email Email do usuário.
@@ -59,7 +80,7 @@ Route::post('/login', [AuthController::class, 'login']);
  * @apiSuccess {String} auth.token_type Tipo do token
  * @apiSuccess {Number} auth.expires_in Tempo de validade do token
  */
-Route::post('/register', [AuthController::class, 'register']);
+Route::post('register', [AuthController::class, 'register']);
 
 /**
  * @api {post} /forgot-password Esqueci Senha

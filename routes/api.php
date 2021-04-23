@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/**
+ * @apiDefine ApiAccessToken
+ * @apiHeader {String} Authorization Token gerado (access_token)
+ */
+
 /*
 |--------------------------------------------------------------------------
 | Rotas de autenticação
