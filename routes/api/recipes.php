@@ -35,6 +35,7 @@ Route::middleware('auth:api')->group(function () {
      *
      * @apiUse ApiAccessToken
      *
+     * @apiParam {Number} category_id ID da categoria relacionada a receita.
      * @apiParam {String} name Nome da receita.
      * @apiParam {String} description Descrição da receita.
      * @apiParam {String} image URL da imagem de destaque da receita.
