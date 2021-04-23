@@ -61,6 +61,7 @@ Route::post('login', [AuthController::class, 'login']);
  * @apiParam {String} name Nome do usuário.
  * @apiParam {String} email Email do usuário.
  * @apiParam {String} password Senha do usuário.
+ * @apiParam {String} password_confirmation Confirmação da senha do usuário.
  * @apiParam {String} [gender] Sexo do usuário. (M, F)
  * @apiParam {String} [avatar] Avatar do usuário.
  * @apiParam {String} [phone] Celular do usuário.
