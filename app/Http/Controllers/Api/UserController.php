@@ -73,7 +73,7 @@ class UserController extends Controller
     {
         $user = $request->user();
 
-        $data = $request->only('name', 'avatar', 'phone', 'gender', 'horoscope', 'team');
+        $data = $request->only('name', 'avatar', 'phone', 'gender');
 
         $user->update($data);
         $user->refresh();

@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Route;
  * @apiSuccess {String} phone Telefone do usuário.
  * @apiSuccess {String} origin Origem da criação do usuário.
  * @apiSuccess {String} status Situação do usuário.
- * @apiSuccess {String} horoscope Horóscopo do usuário.
- * @apiSuccess {String} team Time do usuário.
  * @apiSuccess {Timestamp} created_at Momento de criação do usuário.
  */
 
@@ -68,8 +66,6 @@ Route::middleware('auth:api')->group(function () {
      * @apiParam {String} [avatar] Avatar do usuário.
      * @apiParam {String} [phone] Celular do usuário.
      * @apiParam {String} [gender] Sexo do usuário. (M, F)
-     * @apiParam {String} [horoscope] Horóscopo do usuário. (Signo em minúsculo e sem acentuação, exemplo: leao)
-     * @apiParam {String} [team] Nome do time do usuário. (flamengo, fluminense, botafogo, vasco)
      *
      * @apiUse UserResourceSuccess
      */
@@ -95,8 +91,6 @@ Route::middleware('auth:api')->group(function () {
  * @apiParam {String} [gender] Sexo do usuário. (M, F)
  * @apiParam {String} [avatar] Avatar do usuário.
  * @apiParam {String} [phone] Celular do usuário.
- * @apiParam {String} [horoscope] Horóscopo do usuário. (Signo em minúsculo e sem acentuação, exemplo: leao)
- * @apiParam {String} [team] Nome do time do usuário. (flamengo, fluminense, botafogo, vasco)
  *
  * @apiSuccess {String} name Nome do usuário.
  * @apiSuccess {String} gender Sexo do usuário. (M, F)
