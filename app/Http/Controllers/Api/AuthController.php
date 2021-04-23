@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\{Password, DB};
 
 use App\Models\User;
 use App\Http\Requests\Api\Auth\SendResetPasswordLinkRequest;
+use App\Http\Resources\User\UserResource;
 use Laravel\Passport\Passport;
 
 class AuthController extends Controller
@@ -18,7 +19,7 @@ class AuthController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:55',
             'email' => 'email|required|unique:users',
-            'password' => 'required|confirmed'
+            'password' => 'required'
         ]);
 
         $validatedData['password'] = bcrypt($request->password);
@@ -30,7 +31,7 @@ class AuthController extends Controller
         $expiresIn = date_create('@0')->add($interval)->getTimestamp();
 
         return response([
-            'user' => $user,
+            'user' => UserResource::collection($user),
             'token_type' => 'Bearer',
             'access_token' => $accessToken,
             'expires_in' => $expiresIn
