@@ -31,7 +31,7 @@ class AuthController extends Controller
         $expiresIn = date_create('@0')->add($interval)->getTimestamp();
 
         return response([
-            'user' => UserResource::collection($user),
+            'user' => $user,
             'token_type' => 'Bearer',
             'access_token' => $accessToken,
             'expires_in' => $expiresIn

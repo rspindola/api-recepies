@@ -61,7 +61,6 @@ Route::post('login', [AuthController::class, 'login']);
  * @apiParam {String} name Nome do usuário.
  * @apiParam {String} email Email do usuário.
  * @apiParam {String} password Senha do usuário.
- * @apiParam {String} password_confirmation Confirmação da senha do usuário.
  * @apiParam {String} [gender] Sexo do usuário. (M, F)
  * @apiParam {String} [avatar] Avatar do usuário.
  * @apiParam {String} [phone] Celular do usuário.
@@ -73,8 +72,6 @@ Route::post('login', [AuthController::class, 'login']);
  * @apiSuccess {String} phone Celular do usuário.
  * @apiSuccess {String} origin Origem do registro do usuário.
  * @apiSuccess {String} status Status do usuário.
- * @apiSuccess {String} horoscope Horóscopo do usuário. (Signo em minúsculo e sem acentuação, exemplo: leao)
- * @apiSuccess {String} team Nome do time do usuário. (flamengo, fluminense, botafogo, vasco)
  * @apiSuccess {Timestamp} created_at Momento de criação do usuário.
  * @apiSuccess {Object} auth Informações de autenticação.
  * @apiSuccess {String} auth.access_token Token de acesso

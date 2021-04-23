@@ -349,13 +349,6 @@
           {
             "group": "Parameter",
             "type": "String",
-            "optional": false,
-            "field": "password_confirmation",
-            "description": "<p>Confirmação da senha do usuário.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
             "optional": true,
             "field": "gender",
             "description": "<p>Sexo do usuário. (M, F)</p>"
@@ -428,20 +421,6 @@
             "optional": false,
             "field": "status",
             "description": "<p>Status do usuário.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "horoscope",
-            "description": "<p>Horóscopo do usuário. (Signo em minúsculo e sem acentuação, exemplo: leao)</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "team",
-            "description": "<p>Nome do time do usuário. (flamengo, fluminense, botafogo, vasco)</p>"
           },
           {
             "group": "Success 200",
