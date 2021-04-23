@@ -349,6 +349,13 @@
           {
             "group": "Parameter",
             "type": "String",
+            "optional": false,
+            "field": "password_confirmation",
+            "description": "<p>Confirmação da senha do usuário.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
             "optional": true,
             "field": "gender",
             "description": "<p>Sexo do usuário. (M, F)</p>"
@@ -829,6 +836,13 @@
     "parameter": {
       "fields": {
         "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "category_id",
+            "description": "<p>ID da categoria relacionada a receita.</p>"
+          },
           {
             "group": "Parameter",
             "type": "String",
