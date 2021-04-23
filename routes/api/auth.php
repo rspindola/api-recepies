@@ -41,8 +41,6 @@ Route::post('oauth/token', [AccessTokenController::class, 'issueToken']);
  * @apiSuccess {String} phone Celular do usuário.
  * @apiSuccess {String} origin Origem do registro do usuário.
  * @apiSuccess {String} status Status do usuário.
- * @apiSuccess {String} horoscope Horóscopo do usuário. (Signo em minúsculo e sem acentuação, exemplo: leao)
- * @apiSuccess {String} team Nome do time do usuário. (flamengo, fluminense, botafogo, vasco)
  * @apiSuccess {Timestamp} created_at Momento de criação do usuário.
  * @apiSuccess {Object} auth Informações de autenticação.
  * @apiSuccess {String} auth.access_token Token de acesso

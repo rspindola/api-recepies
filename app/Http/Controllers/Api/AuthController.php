@@ -10,6 +10,7 @@ use App\Models\User;
 use App\Http\Requests\Api\Auth\SendResetPasswordLinkRequest;
 use App\Http\Resources\User\UserResource;
 use Laravel\Passport\Passport;
+use Illuminate\Validation\Rule;
 
 class AuthController extends Controller
 {
@@ -19,7 +20,10 @@ class AuthController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:55',
             'email' => 'email|required|unique:users',
-            'password' => 'required'
+            'password' => 'required',
+            'avatar' => [],
+            'phone' => ['nullable', 'regex:/^\d{2}\s\d{8,9}$/'],
+            'gender' => [Rule::in(['M', 'F'])],
         ]);
 
         $validatedData['password'] = bcrypt($request->password);
@@ -31,7 +35,7 @@ class AuthController extends Controller
         $expiresIn = date_create('@0')->add($interval)->getTimestamp();
 
         return response([
-            'user' => $user,
+            'user' => new UserResource($user),
             'token_type' => 'Bearer',
             'access_token' => $accessToken,
             'expires_in' => $expiresIn
@@ -54,7 +58,7 @@ class AuthController extends Controller
         $expiresIn = date_create('@0')->add($interval)->getTimestamp();
 
         return response([
-            'user' => auth()->user(),
+            'user' => new UserResource(auth()->user()),
             'token_type' => 'Bearer',
             'access_token' => $accessToken,
             'expires_in' => $expiresIn
