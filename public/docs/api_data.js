@@ -37,7 +37,7 @@ define({ "api": [
     "groupTitle": "Auth",
     "sampleRequest": [
       {
-        "url": "http://localhost:8000/api/forgot-password"
+        "url": "https://recipes.renatospindolasistemas.com.br/api/forgot-password"
       }
     ]
   },
@@ -123,20 +123,6 @@ define({ "api": [
           },
           {
             "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "horoscope",
-            "description": "<p>Horóscopo do usuário. (Signo em minúsculo e sem acentuação, exemplo: leao)</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "team",
-            "description": "<p>Nome do time do usuário. (flamengo, fluminense, botafogo, vasco)</p>"
-          },
-          {
-            "group": "Success 200",
             "type": "Timestamp",
             "optional": false,
             "field": "created_at",
@@ -177,7 +163,7 @@ define({ "api": [
     "groupTitle": "Auth",
     "sampleRequest": [
       {
-        "url": "http://localhost:8000/api/login"
+        "url": "https://recipes.renatospindolasistemas.com.br/api/login"
       }
     ]
   },
@@ -206,7 +192,7 @@ define({ "api": [
     "groupTitle": "Auth",
     "sampleRequest": [
       {
-        "url": "http://localhost:8000/api/logout"
+        "url": "https://recipes.renatospindolasistemas.com.br/api/logout"
       }
     ],
     "header": {
@@ -310,7 +296,7 @@ define({ "api": [
     "groupTitle": "Auth",
     "sampleRequest": [
       {
-        "url": "http://localhost:8000/api/oauth/token"
+        "url": "https://recipes.renatospindolasistemas.com.br/api/oauth/token"
       }
     ]
   },
@@ -464,7 +450,7 @@ define({ "api": [
     "groupTitle": "Auth",
     "sampleRequest": [
       {
-        "url": "http://localhost:8000/api/register"
+        "url": "https://recipes.renatospindolasistemas.com.br/api/register"
       }
     ]
   },
@@ -507,7 +493,7 @@ define({ "api": [
     "groupTitle": "Categoria",
     "sampleRequest": [
       {
-        "url": "http://localhost:8000/api/categories"
+        "url": "https://recipes.renatospindolasistemas.com.br/api/categories"
       }
     ],
     "header": {
@@ -620,7 +606,7 @@ define({ "api": [
     "groupTitle": "Categoria",
     "sampleRequest": [
       {
-        "url": "http://localhost:8000/api/categories/:category"
+        "url": "https://recipes.renatospindolasistemas.com.br/api/categories/:category"
       }
     ],
     "header": {
@@ -697,7 +683,7 @@ define({ "api": [
     "groupTitle": "Categoria",
     "sampleRequest": [
       {
-        "url": "http://localhost:8000/api/categories"
+        "url": "https://recipes.renatospindolasistemas.com.br/api/categories"
       }
     ],
     "header": {
@@ -787,7 +773,7 @@ define({ "api": [
     "groupTitle": "Categoria",
     "sampleRequest": [
       {
-        "url": "http://localhost:8000/api/categories/:category"
+        "url": "https://recipes.renatospindolasistemas.com.br/api/categories/:category"
       }
     ],
     "header": {
@@ -850,7 +836,7 @@ define({ "api": [
     "groupTitle": "Receita",
     "sampleRequest": [
       {
-        "url": "http://localhost:8000/api/recipes"
+        "url": "https://recipes.renatospindolasistemas.com.br/api/recipes"
       }
     ],
     "header": {
@@ -956,7 +942,7 @@ define({ "api": [
     "groupTitle": "Receita",
     "sampleRequest": [
       {
-        "url": "http://localhost:8000/api/recipes/:recipe"
+        "url": "https://recipes.renatospindolasistemas.com.br/api/recipes/:recipe"
       }
     ],
     "header": {
@@ -1033,7 +1019,7 @@ define({ "api": [
     "groupTitle": "Receita",
     "sampleRequest": [
       {
-        "url": "http://localhost:8000/api/recipes"
+        "url": "https://recipes.renatospindolasistemas.com.br/api/recipes"
       }
     ],
     "header": {
@@ -1116,7 +1102,7 @@ define({ "api": [
     "groupTitle": "Receita",
     "sampleRequest": [
       {
-        "url": "http://localhost:8000/api/recipes/:recipe"
+        "url": "https://recipes.renatospindolasistemas.com.br/api/recipes/:recipe"
       }
     ],
     "header": {
@@ -1199,7 +1185,7 @@ define({ "api": [
     "groupTitle": "Receita",
     "sampleRequest": [
       {
-        "url": "http://localhost:8000/api/recipes/:recipe"
+        "url": "https://recipes.renatospindolasistemas.com.br/api/recipes/:recipe"
       }
     ],
     "header": {
@@ -1270,7 +1256,7 @@ define({ "api": [
     "groupTitle": "Usuário",
     "sampleRequest": [
       {
-        "url": "http://localhost:8000/api/users/:user/change-password"
+        "url": "https://recipes.renatospindolasistemas.com.br/api/users/:user/change-password"
       }
     ],
     "header": {
@@ -1344,20 +1330,6 @@ define({ "api": [
             "optional": true,
             "field": "phone",
             "description": "<p>Celular do usuário.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "horoscope",
-            "description": "<p>Horóscopo do usuário. (Signo em minúsculo e sem acentuação, exemplo: leao)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "team",
-            "description": "<p>Nome do time do usuário. (flamengo, fluminense, botafogo, vasco)</p>"
           }
         ]
       }
@@ -1456,7 +1428,7 @@ define({ "api": [
     "groupTitle": "Usuário",
     "sampleRequest": [
       {
-        "url": "http://localhost:8000/api/users"
+        "url": "https://recipes.renatospindolasistemas.com.br/api/users"
       }
     ],
     "header": {
@@ -1520,20 +1492,6 @@ define({ "api": [
             "optional": true,
             "field": "gender",
             "description": "<p>Sexo do usuário. (M, F)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "horoscope",
-            "description": "<p>Horóscopo do usuário. (Signo em minúsculo e sem acentuação, exemplo: leao)</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "team",
-            "description": "<p>Nome do time do usuário. (flamengo, fluminense, botafogo, vasco)</p>"
           }
         ]
       }
@@ -1542,7 +1500,7 @@ define({ "api": [
     "groupTitle": "Usuário",
     "sampleRequest": [
       {
-        "url": "http://localhost:8000/api/users/:user"
+        "url": "https://recipes.renatospindolasistemas.com.br/api/users/:user"
       }
     ],
     "header": {
@@ -1616,20 +1574,6 @@ define({ "api": [
             "optional": false,
             "field": "status",
             "description": "<p>Situação do usuário.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "horoscope",
-            "description": "<p>Horóscopo do usuário.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "team",
-            "description": "<p>Time do usuário.</p>"
           },
           {
             "group": "Success 200",
@@ -1667,7 +1611,7 @@ define({ "api": [
     "groupTitle": "Usuário",
     "sampleRequest": [
       {
-        "url": "http://localhost:8000/api/users/:user"
+        "url": "https://recipes.renatospindolasistemas.com.br/api/users/:user"
       }
     ],
     "header": {
@@ -1741,20 +1685,6 @@ define({ "api": [
             "optional": false,
             "field": "status",
             "description": "<p>Situação do usuário.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "horoscope",
-            "description": "<p>Horóscopo do usuário.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "team",
-            "description": "<p>Time do usuário.</p>"
           },
           {
             "group": "Success 200",
