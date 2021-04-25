@@ -27,7 +27,9 @@ class RecipeController extends Controller
      */
     public function store(RecipeRequest $request)
     {
-        $recipe = Recipe::create($request->all());
+        $data = $request->all();
+        // $data['ingredients'] = serialize($request['ingredients']);
+        $recipe = Recipe::create($data);
         return $recipe;
     }
 
