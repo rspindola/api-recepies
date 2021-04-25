@@ -13,20 +13,18 @@ use Illuminate\Support\Facades\Route;
  * @apiSuccess {Timestamp} updated_at Momento de atualização da categoria.
  */
 
-Route::middleware('auth:api')->group(function () {
-    /**
-     * @api {get} /categories Obter Categorias
-     * @apiDescription Obtém a listagrem de todas as categorias no sistema
-     * @apiName ObterCategorias
-     * @apiGroup Categoria
-     * @apiVersion 0.0.1
-     *
-     * @apiUse ApiAccessToken
-     *
-     * @apiUse CategoryResourceSuccess
-     */
-    Route::get('/categories', [CategoryController::class, 'index']);
+/**
+ * @api {get} /categories Listar Categorias
+ * @apiDescription Obtém a listagrem de todas as categorias no sistema
+ * @apiName ListarCategorias
+ * @apiGroup Categoria
+ * @apiVersion 0.0.1
+ *
+ * @apiUse CategoryResourceSuccess
+ */
+Route::get('/categories', [CategoryController::class, 'index']);
 
+Route::middleware('auth:api')->group(function () {
     /**
      * @api {post} /categories Cadastrar Categoria
      * @apiDescription Cadastra uma nova categoria no sistema
@@ -43,6 +41,21 @@ Route::middleware('auth:api')->group(function () {
      * @apiUse CategoryResourceSuccess
      */
     Route::post('/categories', [CategoryController::class, 'store']);
+
+    /**
+     * @api {get} /categories/:category Obter Categoria
+     * @apiDescription Obtém a categoria no sistema pelo id
+     * @apiName ObterCategoria
+     * @apiGroup Categoria
+     * @apiVersion 0.0.1
+     *
+     * @apiUse ApiAccessToken
+     *
+     * @apiParam (URL) {Number} category ID da categoria
+     *
+     * @apiUse CategoryResourceSuccess
+     */
+    Route::get('/categories/{category}', [CategoryController::class, 'show']);
 
     /**
      * @api {put} /categories/:category Editar Categoria

@@ -16,5 +16,5 @@ use App\Http\Controllers\Api\GoogleController;
 
 // Redirecionando para a documentação ao acessar a raiz
 Route::get('/', function () {
-    return view('welcome');
-});
+    return redirect()->away('/docs/index.html');
+})->name('docs');

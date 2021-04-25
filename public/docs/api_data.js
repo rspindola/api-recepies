@@ -674,9 +674,9 @@ define({ "api": [
   {
     "type": "get",
     "url": "/categories",
-    "title": "Obter Categorias",
+    "title": "Listar Categorias",
     "description": "<p>Obtém a listagrem de todas as categorias no sistema</p>",
-    "name": "ObterCategorias",
+    "name": "ListarCategorias",
     "group": "Categoria",
     "version": "0.0.1",
     "filename": "routes/api/categories.php",
@@ -684,6 +684,83 @@ define({ "api": [
     "sampleRequest": [
       {
         "url": "https://recipes.renatospindolasistemas.com.br/api/categories"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>ID da categoria.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Nome da categoria.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>Descrição da categoria.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "icon",
+            "description": "<p>URL da imagem do icone da categoria.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Timestamp",
+            "optional": false,
+            "field": "created_at",
+            "description": "<p>Momento de criação da categoria.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Timestamp",
+            "optional": false,
+            "field": "updated_at",
+            "description": "<p>Momento de atualização da categoria.</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
+    "url": "/categories/:category",
+    "title": "Obter Categoria",
+    "description": "<p>Obtém a categoria no sistema pelo id</p>",
+    "name": "ObterCategoria",
+    "group": "Categoria",
+    "version": "0.0.1",
+    "parameter": {
+      "fields": {
+        "URL": [
+          {
+            "group": "URL",
+            "type": "Number",
+            "optional": false,
+            "field": "category",
+            "description": "<p>ID da categoria</p>"
+          }
+        ]
+      }
+    },
+    "filename": "routes/api/categories.php",
+    "groupTitle": "Categoria",
+    "sampleRequest": [
+      {
+        "url": "https://recipes.renatospindolasistemas.com.br/api/categories/:category"
       }
     ],
     "header": {
@@ -828,6 +905,13 @@ define({ "api": [
             "optional": false,
             "field": "image",
             "description": "<p>URL da imagem de destaque da receita.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "ingredients",
+            "description": "<p>Listagem com os ingredientes da receita.</p>"
           }
         ]
       }
@@ -934,6 +1018,13 @@ define({ "api": [
             "optional": false,
             "field": "image",
             "description": "<p>URL da imagem de destaque da receita.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "ingredients",
+            "description": "<p>Listagem com os ingredientes da receita.</p>"
           }
         ]
       }
@@ -1022,19 +1113,6 @@ define({ "api": [
         "url": "https://recipes.renatospindolasistemas.com.br/api/recipes"
       }
     ],
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Token gerado (access_token)</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "fields": {
         "Success 200": [
@@ -1105,19 +1183,6 @@ define({ "api": [
         "url": "https://recipes.renatospindolasistemas.com.br/api/recipes/:recipe"
       }
     ],
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Authorization",
-            "description": "<p>Token gerado (access_token)</p>"
-          }
-        ]
-      }
-    },
     "success": {
       "fields": {
         "Success 200": [
