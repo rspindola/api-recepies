@@ -6,9 +6,12 @@ use Illuminate\Support\Facades\Route;
 /**
  * @apiDefine RecipeResourceSuccess
  * @apiSuccess {Number} id ID da receita.
+ * @apiSuccess {Object[]} category Categoria da receita
  * @apiSuccess {String} name Nome da receita.
  * @apiSuccess {String} description Descrição da receita.
- * @apiSuccess {String} icon URL da imagem do icone da receita.
+ * @apiSuccess {String} image URL da imagem do icone da receita.
+ * @apiSuccess {String} slug URL do caminho da receita.
+ * @apiParam {Array} ingredients Listagem com os ingredientes da receita.
  * @apiSuccess {Timestamp} created_at Momento de criação da receita.
  */
 
@@ -51,6 +54,8 @@ Route::middleware('auth:api')->group(function () {
      * @apiParam {String} description Descrição da receita.
      * @apiParam {String} image URL da imagem de destaque da receita.
      * @apiParam {Array} ingredients Listagem com os ingredientes da receita.
+     * @apiParam {String} image URL da imagem de destaque da receita.
+     *
      *
      * @apiUse RecipeResourceSuccess
      */

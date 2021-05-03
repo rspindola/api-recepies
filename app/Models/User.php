@@ -64,4 +64,20 @@ class User extends Authenticatable
     {
         $this->notify(new ResetPasswordNotification($token));
     }
+
+    /**
+     * Get all of cards for the user.
+     */
+    public function cards()
+    {
+        return $this->hasMany(Card::class);
+    }
+
+    /**
+     * Get all of favorite recipes for the user.
+     */
+    public function favorites()
+    {
+        return $this->belongsToMany(Recipe::class, 'favorites', 'user_id', 'recipe_id')->withTimeStamps();
+    }
 }

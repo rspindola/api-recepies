@@ -61,3 +61,5 @@ Route::name('categories')->group(base_path('routes/api/categories.php'));
 |
 */
 Route::name('recipes')->group(base_path('routes/api/recipes.php'));
+
+Route::name('favorites')->group(base_path('routes/api/favorites.php'));

@@ -869,6 +869,249 @@
   },
   {
     "type": "post",
+    "url": "/favorites/save",
+    "title": "Cadastrar Favorito",
+    "description": "<p>Cadastra uma receita como favorita do usuário</p>",
+    "name": "CadastrarFavorito",
+    "group": "Favoritos",
+    "version": "0.0.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "recipe_id",
+            "description": "<p>ID da receita favoritada.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "ingredients",
+            "description": "<p>Listagem com os ingredientes da receita.</p>"
+          }
+        ]
+      }
+    },
+    "filename": "routes/api/favorites.php",
+    "groupTitle": "Favoritos",
+    "sampleRequest": [
+      {
+        "url": "https://recipes.renatospindolasistemas.com.br/api/favorites/save"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token gerado (access_token)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>ID da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "category",
+            "description": "<p>Categoria da receita</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Nome da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>Descrição da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "image",
+            "description": "<p>URL da imagem do icone da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "slug",
+            "description": "<p>URL do caminho da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Timestamp",
+            "optional": false,
+            "field": "created_at",
+            "description": "<p>Momento de criação da receita.</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "/favorites",
+    "title": "Listar Favoritos",
+    "description": "<p>Obtém a listagrem das receitas favoritas do usuário</p>",
+    "name": "ListarFavoritos",
+    "group": "Favoritos",
+    "version": "0.0.1",
+    "filename": "routes/api/favorites.php",
+    "groupTitle": "Favoritos",
+    "sampleRequest": [
+      {
+        "url": "https://recipes.renatospindolasistemas.com.br/api/favorites"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token gerado (access_token)</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>ID da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "category",
+            "description": "<p>Categoria da receita</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Nome da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>Descrição da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "image",
+            "description": "<p>URL da imagem do icone da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "slug",
+            "description": "<p>URL do caminho da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Timestamp",
+            "optional": false,
+            "field": "created_at",
+            "description": "<p>Momento de criação da receita.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "ingredients",
+            "description": "<p>Listagem com os ingredientes da receita.</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "delete",
+    "url": "/favorites/remove",
+    "title": "Remover Favorito",
+    "description": "<p>Remove uma receita do sistema.</p>",
+    "name": "RemoverFavorito",
+    "group": "Favoritos",
+    "version": "0.0.1",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "recipe_id",
+            "description": "<p>ID da receita favoritada.</p>"
+          }
+        ]
+      }
+    },
+    "filename": "routes/api/favorites.php",
+    "groupTitle": "Favoritos",
+    "sampleRequest": [
+      {
+        "url": "https://recipes.renatospindolasistemas.com.br/api/favorites/remove"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token gerado (access_token)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
     "url": "/recipes",
     "title": "Cadastrar Receita",
     "description": "<p>Cadastra uma nova receita no sistema</p>",
@@ -948,6 +1191,13 @@
           },
           {
             "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "category",
+            "description": "<p>Categoria da receita</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "name",
@@ -964,8 +1214,15 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "icon",
+            "field": "image",
             "description": "<p>URL da imagem do icone da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "slug",
+            "description": "<p>URL do caminho da receita.</p>"
           },
           {
             "group": "Success 200",
@@ -1125,6 +1382,13 @@
           },
           {
             "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "category",
+            "description": "<p>Categoria da receita</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "name",
@@ -1141,8 +1405,15 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "icon",
+            "field": "image",
             "description": "<p>URL da imagem do icone da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "slug",
+            "description": "<p>URL do caminho da receita.</p>"
           },
           {
             "group": "Success 200",
@@ -1150,6 +1421,19 @@
             "optional": false,
             "field": "created_at",
             "description": "<p>Momento de criação da receita.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "ingredients",
+            "description": "<p>Listagem com os ingredientes da receita.</p>"
           }
         ]
       }
@@ -1173,6 +1457,15 @@
             "field": "recipe",
             "description": "<p>ID da receita</p>"
           }
+        ],
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "ingredients",
+            "description": "<p>Listagem com os ingredientes da receita.</p>"
+          }
         ]
       }
     },
@@ -1195,6 +1488,13 @@
           },
           {
             "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "category",
+            "description": "<p>Categoria da receita</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "name",
@@ -1211,8 +1511,15 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "icon",
+            "field": "image",
             "description": "<p>URL da imagem do icone da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "slug",
+            "description": "<p>URL do caminho da receita.</p>"
           },
           {
             "group": "Success 200",
