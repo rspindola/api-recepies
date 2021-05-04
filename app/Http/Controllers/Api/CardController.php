@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Card\CardRequest;
 use App\Http\Resources\Card\{CardRecipeResource, CardResource};
 use App\Models\Card;
 use Illuminate\Http\Request;
@@ -26,7 +27,7 @@ class CardController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CardRequest $request)
     {
         $user = $request->user();
         $card = $user->cards()->create($request->all());
@@ -53,7 +54,7 @@ class CardController extends Controller
      * @param  \App\Models\Card  $card
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Card $card)
+    public function update(CardRequest $request, Card $card)
     {
         $user = $request->user();
         $card = $user->cards()->find($card->id)->update($request->all());
