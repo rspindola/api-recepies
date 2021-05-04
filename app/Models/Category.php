@@ -12,6 +12,14 @@ class Category extends Model
 
     protected $fillable = ['name', 'description', 'icon', 'slug'];
 
+    protected $hidden = [
+        'icon'
+    ];
+
+    protected $appends = [
+        'image_url'
+    ];
+
     /**
      * Get the options for generating the slug.
      */
@@ -20,6 +28,11 @@ class Category extends Model
         return SlugOptions::create()
             ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
+    }
+
+    public function getImageUrlAttribute()
+    {
+        return asset('storage/' . $this->attributes['icon']);
     }
 
     /**

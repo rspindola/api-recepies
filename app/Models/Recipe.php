@@ -12,6 +12,14 @@ class Recipe extends Model
 
     protected $fillable = ['category_id', 'name', 'description', 'image', 'slug', 'ingredients'];
 
+    protected $hidden = [
+        'image'
+    ];
+
+    protected $appends = [
+        'image_url'
+    ];
+
     protected $casts = [
         'ingredients' => 'array',
     ];
@@ -24,6 +32,11 @@ class Recipe extends Model
         return SlugOptions::create()
             ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
+    }
+
+    public function getImageURLAttribute()
+    {
+        return asset('storage/' . $this->attributes['image']);
     }
 
     /**

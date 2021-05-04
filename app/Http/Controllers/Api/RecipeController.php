@@ -42,7 +42,7 @@ class RecipeController extends Controller
     {
         $user = $request->user();
         $data = $request->all();
-        $recipe = $recipe = $user->recipes()->create($data);
+        $recipe = $user->recipes()->create($data);
 
         return new RecipeResource($recipe);
     }

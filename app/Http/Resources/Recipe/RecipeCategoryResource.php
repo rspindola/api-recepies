@@ -20,7 +20,7 @@ class RecipeCategoryResource extends JsonResource
             'category' => new CategoryResource($this->category),
             'name' => $this->name,
             'description' => $this->description,
-            'image' => $this->image,
+            'image' => $this->image_url,
             'ingredients' => $this->ingredients,
             'slug' => $this->slug,
             'created_at' => $this->created_at
