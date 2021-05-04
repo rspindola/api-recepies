@@ -36,7 +36,7 @@ Route::middleware('auth:api')->group(function () {
      *
      * @apiParam {String} name Nome da categoria.
      * @apiParam {String} description Descrição da categoria.
-     * @apiParam {String} icon URL da imagem do icone da categoria.
+     * @apiParam {File} icon URL da imagem do icone da categoria.
      *
      * @apiUse CategoryResourceSuccess
      */
@@ -70,7 +70,7 @@ Route::middleware('auth:api')->group(function () {
      *
      * @apiParam {String} name Nome da categoria.
      * @apiParam {String} description Descrição da categoria.
-     * @apiParam {String} icon URL da imagem do icone da categoria.
+     * @apiParam {File} icon URL da imagem do icone da categoria.
      *
      * @apiUse CategoryResourceSuccess
      */

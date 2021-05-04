@@ -52,7 +52,7 @@ Route::middleware('auth:api')->group(function () {
      * @apiParam {Number} category_id ID da categoria relacionada a receita.
      * @apiParam {String} name Nome da receita.
      * @apiParam {String} description Descrição da receita.
-     * @apiParam {String} image URL da imagem de destaque da receita.
+     * @apiParam {File} image URL da imagem de destaque da receita.
      * @apiParam {Array} ingredients Listagem com os ingredientes da receita.
      * @apiParam {String} image URL da imagem de destaque da receita.
      *
@@ -74,7 +74,7 @@ Route::middleware('auth:api')->group(function () {
      *
      * @apiParam {String} name Nome da receita.
      * @apiParam {String} description Descrição da receita.
-     * @apiParam {String} image URL da imagem de destaque da receita.
+     * @apiParam {File} image URL da imagem de destaque da receita.
      * @apiParam {Array} ingredients Listagem com os ingredientes da receita.
      *
      * @apiUse CategoryResourceSuccess

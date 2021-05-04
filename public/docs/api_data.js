@@ -1576,7 +1576,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "String",
+            "type": "File",
             "optional": false,
             "field": "image",
             "description": "<p>URL da imagem de destaque da receita.</p>"
@@ -1710,7 +1710,7 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "String",
+            "type": "File",
             "optional": false,
             "field": "image",
             "description": "<p>URL da imagem de destaque da receita.</p>"
