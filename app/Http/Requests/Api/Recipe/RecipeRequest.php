@@ -27,14 +27,14 @@ class RecipeRequest extends FormRequest
         $rules = [
             'category_id' => ['required'],
             'description' => [],
-            'image' => [],
+            'image' => ['image'],
             'ingredients' => ['required'],
         ];
 
         if ($this->isMethod('post')) {
             $rules['name'] = 'required';
             $rules['description'] = ['required'];
-            $rules['image'] = ['required'];
+            $rules['image'] = ['required', 'image'];
         }
 
         return $rules;

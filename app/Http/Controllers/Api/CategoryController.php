@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Category\CategoryRequest;
 use App\Http\Resources\Category\CategoryResource;
 use App\Models\Category;
-use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -28,7 +29,16 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request)
     {
-        $category = Category::create($request->all());
+        $data = $request->all();
+
+        if ($request->hasFile('icon')) {
+            $ext = $request->file('icon')->getClientOriginalExtension();
+            $filename = Str::random(10) . "." . $ext;
+            $request->file('icon')->storeAs('public/images/category', $filename);
+            $data['icon'] = "images/category/" . $filename;
+        }
+
+        $category = Category::create($data);
         return new CategoryResource($category);
     }
 
@@ -41,7 +51,20 @@ class CategoryController extends Controller
      */
     public function update(CategoryRequest $request, Category $category)
     {
-        $category->update($request->all());
+        $data = $request->all();
+
+        if ($request->hasFile('icon')) {
+            if (Storage::disk('public')->exists($category->icon)) {
+                Storage::disk('public')->delete($category->icon);
+            }
+
+            $ext = $request->file('icon')->getClientOriginalExtension();
+            $filename = Str::random(10) . "." . $ext;
+            $request->file('icon')->storeAs('public/images/category', $filename);
+            $data['icon'] = "images/category/" . $filename;
+        }
+
+        $category->update($data);
         $category->refresh();
 
         return new CategoryResource($category);
@@ -55,7 +78,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+        if (Storage::disk('public')->exists($category->icon)) {
+            Storage::disk('public')->delete($category->icon);
+        }
+
         $category->delete();
-        return new CategoryResource($category);
     }
 }

@@ -7,6 +7,8 @@ use App\Http\Requests\Api\Recipe\RecipeRequest;
 use Illuminate\Http\Request;
 use App\Http\Resources\Recipe\RecipeResource;
 use App\Models\Recipe;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class RecipeController extends Controller
 {
@@ -42,6 +44,14 @@ class RecipeController extends Controller
     {
         $user = $request->user();
         $data = $request->all();
+
+        if ($request->hasFile('icon')) {
+            $ext = $request->file('image')->getClientOriginalExtension();
+            $filename = Str::random(10) . "." . $ext;
+            $request->file('image')->storeAs('public/images/recipes', $filename);
+            $data['image'] = "images/recipes/" . $filename;
+        }
+
         $recipe = $user->recipes()->create($data);
 
         return new RecipeResource($recipe);
@@ -71,7 +81,20 @@ class RecipeController extends Controller
     public function update(RecipeRequest $request, Recipe $recipe)
     {
         $user = $request->user();
-        $user->recipes()->find($recipe->id)->update($request->all());
+        $data = $request->all();
+
+        if ($request->hasFile('icon')) {
+            if (Storage::disk('public')->exists($recipe->image)) {
+                Storage::disk('public')->delete($recipe->image);
+            }
+
+            $ext = $request->file('image')->getClientOriginalExtension();
+            $filename = Str::random(10) . "." . $ext;
+            $request->file('image')->storeAs('public/images/recipes', $filename);
+            $data['image'] = "images/recipes/" . $filename;
+        }
+
+        $user->recipes()->find($recipe->id)->update($data);
         $recipe->refresh();
 
         return new RecipeResource($recipe);
@@ -86,6 +109,9 @@ class RecipeController extends Controller
     public function destroy(Recipe $recipe, Request $request)
     {
         $user = $request->user();
+        if (Storage::disk('public')->exists($recipe->image)) {
+            Storage::disk('public')->delete($recipe->image);
+        }
         $user->recipes()->find($recipe->id)->delete();
     }
 }

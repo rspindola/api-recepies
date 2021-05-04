@@ -27,13 +27,13 @@ class CategoryRequest extends FormRequest
         $rules = [
             'category_id' => ['exists:categories,id,category_id'],
             'description' => [],
-            'icon' => [],
+            'icon' => ['image'],
         ];
 
         if ($this->isMethod('post')) {
             $rules['name'] = 'required';
             $rules['description'] = ['required'];
-            $rules['icon'] = ['required'];
+            $rules['icon'] = ['required', 'image'];
         }
 
         return $rules;
