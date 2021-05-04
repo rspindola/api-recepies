@@ -456,6 +456,57 @@ define({ "api": [
   },
   {
     "type": "post",
+    "url": "/cards/:card/add",
+    "title": "Adicionar Receita",
+    "description": "<p>Adiciona uma receita no card selecionado.</p>",
+    "name": "AdiconarReceitaCard",
+    "group": "Card",
+    "version": "0.0.1",
+    "parameter": {
+      "fields": {
+        "URL": [
+          {
+            "group": "URL",
+            "type": "Number",
+            "optional": false,
+            "field": "card",
+            "description": "<p>ID do card.</p>"
+          }
+        ],
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "recipe_id",
+            "description": "<p>ID da receita a ser incluida no card.</p>"
+          }
+        ]
+      }
+    },
+    "filename": "routes/api/cards.php",
+    "groupTitle": "Card",
+    "sampleRequest": [
+      {
+        "url": "https://recipes.renatospindolasistemas.com.br/api/cards/:card/add"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token gerado (access_token)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
     "url": "/cards",
     "title": "Cadastrar Card",
     "description": "<p>Cadastra um novo card no sistema</p>",
@@ -823,6 +874,57 @@ define({ "api": [
     "sampleRequest": [
       {
         "url": "https://recipes.renatospindolasistemas.com.br/api/cards/:card"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token gerado (access_token)</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "/cards/:card/remove",
+    "title": "Remover Receita",
+    "description": "<p>Remove uma receita no card selecionado.</p>",
+    "name": "RemoverReceitaCard",
+    "group": "Card",
+    "version": "0.0.1",
+    "parameter": {
+      "fields": {
+        "URL": [
+          {
+            "group": "URL",
+            "type": "Number",
+            "optional": false,
+            "field": "card",
+            "description": "<p>ID do card.</p>"
+          }
+        ],
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "recipe_id",
+            "description": "<p>ID da receita a ser removida no card.</p>"
+          }
+        ]
+      }
+    },
+    "filename": "routes/api/cards.php",
+    "groupTitle": "Card",
+    "sampleRequest": [
+      {
+        "url": "https://recipes.renatospindolasistemas.com.br/api/cards/:card/remove"
       }
     ],
     "header": {

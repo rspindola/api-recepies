@@ -86,4 +86,32 @@ Route::middleware('auth:api')->group(function () {
      * @apiParam (URL) {Number} card ID do card.
      */
     Route::delete('/cards/{card}', [CardController::class, 'destroy']);
+
+    /**
+     * @api {post} /cards/:card/add Adicionar Receita
+     * @apiDescription Adiciona uma receita no card selecionado.
+     * @apiName AdiconarReceitaCard
+     * @apiGroup Card
+     * @apiVersion 0.0.1
+     *
+     * @apiUse ApiAccessToken
+     *
+     * @apiParam (URL) {Number} card ID do card.
+     * @apiParam {Number} recipe_id ID da receita a ser incluida no card.
+     */
+    Route::post('/cards/{card}/add', [CardController::class, 'addRecipe']);
+
+    /**
+     * @api {post} /cards/:card/remove Remover Receita
+     * @apiDescription Remove uma receita no card selecionado.
+     * @apiName RemoverReceitaCard
+     * @apiGroup Card
+     * @apiVersion 0.0.1
+     *
+     * @apiUse ApiAccessToken
+     *
+     * @apiParam (URL) {Number} card ID do card.
+     * @apiParam {Number} recipe_id ID da receita a ser removida no card.
+     */
+    Route::post('/cards/{card}/remove', [CardController::class, 'removeRecipe']);
 });

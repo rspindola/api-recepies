@@ -57,7 +57,7 @@ class CardController extends Controller
         $card->update($request->all());
         $card->refresh();
 
-        return CardResource::collection($card);
+        return new CardResource($card);
     }
 
     /**
@@ -68,7 +68,39 @@ class CardController extends Controller
      */
     public function destroy(Card $card)
     {
+        $card->recipes()->detach();
         $card->delete();
-        return CardResource::collection($card);
+        $response = 'Removido com sucesso';
+        return response($response, 200);
+    }
+
+    /**
+     * Adiciona a receita no card.
+     *
+     * @param  \App\Models\Card  $card
+     * @return \Illuminate\Http\Response
+     */
+    public function addRecipe(Request $request, Card $card)
+    {
+        $data = $request->only('recipe_id');
+        $card->recipes()->attach($data);
+        $card->load('recipes');
+
+        return new CardRecipeResource($card);
+    }
+
+    /**
+     * Remove a receita no card.
+     *
+     * @param  \App\Models\Card  $card
+     * @return \Illuminate\Http\Response
+     */
+    public function removeRecipe(Request $request, Card $card)
+    {
+        $data = $request->only('recipe_id');
+        $card->recipes()->detach($data);
+        $card->load('recipes');
+
+        return new CardRecipeResource($card);
     }
 }
