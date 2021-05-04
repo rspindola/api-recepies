@@ -723,6 +723,19 @@
         "url": "https://recipes.renatospindolasistemas.com.br/api/cards"
       }
     ],
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token gerado (access_token)</p>"
+          }
+        ]
+      }
+    },
     "success": {
       "fields": {
         "Success 200": [

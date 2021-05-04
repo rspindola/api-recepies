@@ -20,6 +20,8 @@ Route::middleware('auth:api')->group(function () {
      * @apiGroup Card
      * @apiVersion 0.0.1
      *
+     * @apiUse ApiAccessToken
+     *
      * @apiUse CardResourceSuccess
      */
     Route::get('/cards', [CardController::class, 'index']);
