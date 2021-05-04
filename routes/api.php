@@ -48,6 +48,10 @@ Route::name('users')->group(base_path('routes/api/users.php'));
 |--------------------------------------------------------------------------
 |
 | GET /categories
+| POST /categories
+| PUT /categories/:category
+| GET /categories/:category
+| DELETe /categories/:category
 |
 */
 Route::name('categories')->group(base_path('routes/api/categories.php'));
@@ -58,8 +62,36 @@ Route::name('categories')->group(base_path('routes/api/categories.php'));
 |--------------------------------------------------------------------------
 |
 | GET /recipes
+| POST /recipes
+| PUT /recipes/:recipe
+| GET /recipes/:recipe
+| DELETe /recipes/:recipe
 |
 */
 Route::name('recipes')->group(base_path('routes/api/recipes.php'));
 
+/*
+|--------------------------------------------------------------------------
+| Rotas de Favoritos
+|--------------------------------------------------------------------------
+|
+| GET /favorites
+| POST /favorites/save
+| DELETE /favorites/remove
+|
+*/
 Route::name('favorites')->group(base_path('routes/api/favorites.php'));
+
+/*
+|--------------------------------------------------------------------------
+| Rotas de Cards
+|--------------------------------------------------------------------------
+|
+| GET /cards
+| POST /cards
+| PUT /cards/:card
+| GET /cards/:card
+| DELETe /cards/:card
+|
+*/
+Route::name('cards')->group(base_path('routes/api/cards.php'));

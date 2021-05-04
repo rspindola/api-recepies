@@ -2,9 +2,10 @@
 
 namespace App\Http\Resources\Recipe;
 
+use App\Http\Resources\Category\CategoryResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class RecipeResource extends JsonResource
+class RecipeCategoryResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,6 +17,7 @@ class RecipeResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'category' => new CategoryResource($this->category),
             'name' => $this->name,
             'description' => $this->description,
             'image' => $this->image,

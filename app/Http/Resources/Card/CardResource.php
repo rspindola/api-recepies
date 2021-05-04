@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Recipe;
+namespace App\Http\Resources\Card;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class RecipeResource extends JsonResource
+class CardResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,11 +16,9 @@ class RecipeResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
+            'title' => $this->title,
             'description' => $this->description,
-            'image' => $this->image,
-            'ingredients' => $this->ingredients,
-            'slug' => $this->slug,
+            'color' => $this->color,
             'created_at' => $this->created_at
         ];
     }
