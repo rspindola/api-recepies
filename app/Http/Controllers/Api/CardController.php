@@ -39,9 +39,10 @@ class CardController extends Controller
      * @param  \App\Models\Card  $card
      * @return \Illuminate\Http\Response
      */
-    public function show(Card $card)
+    public function show(Request $request, Card $card)
     {
-        $card = $card->load('recipes');
+        $user = $request->user();
+        $card = $user->cards()->find($card->id)->load('recipes');
         return new CardRecipeResource($card);
     }
 
@@ -54,7 +55,8 @@ class CardController extends Controller
      */
     public function update(Request $request, Card $card)
     {
-        $card->update($request->all());
+        $user = $request->user();
+        $card = $user->cards()->find($card->id)->update($request->all());
         $card->refresh();
 
         return new CardResource($card);
@@ -66,12 +68,11 @@ class CardController extends Controller
      * @param  \App\Models\Card  $card
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Card $card)
+    public function destroy(Card $card, Request $request)
     {
-        $card->recipes()->detach();
-        $card->delete();
-        $response = 'Removido com sucesso';
-        return response($response, 200);
+        $user = $request->user();
+        $user->cards()->find($card->id)->detach();
+        $user->cards()->find($card->id)->delete();
     }
 
     /**
@@ -82,9 +83,10 @@ class CardController extends Controller
      */
     public function addRecipe(Request $request, Card $card)
     {
+        $user = $request->user();
         $data = $request->only('recipe_id');
-        $card->recipes()->attach($data);
-        $card->load('recipes');
+        $user->cards()->find($card->id)->attach($data);
+        $user->cards()->find($card->id)->load('recipes');
 
         return new CardRecipeResource($card);
     }
@@ -97,9 +99,10 @@ class CardController extends Controller
      */
     public function removeRecipe(Request $request, Card $card)
     {
+        $user = $request->user();
         $data = $request->only('recipe_id');
-        $card->recipes()->detach($data);
-        $card->load('recipes');
+        $user->cards()->find($card->id)->detach($data);
+        $user->cards()->find($card->id)->load('recipes');
 
         return new CardRecipeResource($card);
     }

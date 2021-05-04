@@ -31,9 +31,6 @@ class FavoriteController extends Controller
         $user = $request->user();
         $data = $request->only('recipe_id');
         $user->favorites()->attach($data);
-
-        $response = 'Adicionado com sucesso!';
-        return response($response, 200);
     }
 
     /**
@@ -47,8 +44,5 @@ class FavoriteController extends Controller
         $user = $request->user();
         $data = $request->only('recipe_id');
         $user->favorites()->detach($data);
-
-        $response = 'Removido com sucesso!';
-        return response($response, 200);
     }
 }

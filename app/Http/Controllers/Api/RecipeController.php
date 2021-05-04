@@ -19,7 +19,7 @@ class RecipeController extends Controller
     public function getMe(Request $request)
     {
         $user = $request->user();
-        return RecipeResource::collection($user->devices);
+        return RecipeResource::collection($user->recipes);
     }
 
     /**
@@ -42,8 +42,9 @@ class RecipeController extends Controller
     {
         $user = $request->user();
         $data = $request->all();
-        $recipe = $user->recipes->create($data);
-        return $recipe;
+        $recipe = $recipe = $user->recipes()->create($data);
+
+        return new RecipeResource($recipe);
     }
 
     /**
@@ -52,8 +53,10 @@ class RecipeController extends Controller
      * @param  \App\Models\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
-    public function show(Recipe $recipe)
+    public function show(Request $request, Recipe $recipe)
     {
+        $user = $request->user();
+        $recipe = $user->recipes()->find($recipe->id);
         return new RecipeResource($recipe);
     }
 
@@ -68,7 +71,7 @@ class RecipeController extends Controller
     public function update(RecipeRequest $request, Recipe $recipe)
     {
         $user = $request->user();
-        $user->recipes()->where('id', $recipe->id)->update($request->all());
+        $user->recipes()->find($recipe->id)->update($request->all());
         $recipe->refresh();
 
         return new RecipeResource($recipe);
@@ -83,6 +86,6 @@ class RecipeController extends Controller
     public function destroy(Recipe $recipe, Request $request)
     {
         $user = $request->user();
-        $user->recipes()->where('id', $recipe->id)->delete();
+        $user->recipes()->find($recipe->id)->delete();
     }
 }
