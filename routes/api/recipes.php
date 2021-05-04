@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
  * @apiSuccess {String} description Descrição da receita.
  * @apiSuccess {String} image URL da imagem do icone da receita.
  * @apiSuccess {String} slug URL do caminho da receita.
- * @apiParam {Array} ingredients Listagem com os ingredientes da receita.
+ * @apiSuccess {Array} ingredients Listagem com os ingredientes da receita.
  * @apiSuccess {Timestamp} created_at Momento de criação da receita.
  */
 

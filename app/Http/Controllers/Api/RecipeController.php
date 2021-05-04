@@ -4,11 +4,24 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Recipe\RecipeRequest;
+use Illuminate\Http\Request;
 use App\Http\Resources\Recipe\RecipeResource;
 use App\Models\Recipe;
 
 class RecipeController extends Controller
 {
+    /**
+     * Obtém os dispositivos do usuário autenticado.
+     *
+     * @param Request $request
+     * @return RecipeResource $devices
+     */
+    public function getMe(Request $request)
+    {
+        $user = $request->user();
+        return RecipeResource::collection($user->devices);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -27,9 +40,9 @@ class RecipeController extends Controller
      */
     public function store(RecipeRequest $request)
     {
+        $user = $request->user();
         $data = $request->all();
-        // $data['ingredients'] = serialize($request['ingredients']);
-        $recipe = Recipe::create($data);
+        $recipe = $user->recipes->create($data);
         return $recipe;
     }
 
@@ -54,7 +67,8 @@ class RecipeController extends Controller
      */
     public function update(RecipeRequest $request, Recipe $recipe)
     {
-        $recipe->update($request->all());
+        $user = $request->user();
+        $user->recipes()->where('id', $recipe->id)->update($request->all());
         $recipe->refresh();
 
         return new RecipeResource($recipe);
@@ -66,9 +80,9 @@ class RecipeController extends Controller
      * @param  \App\Models\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Recipe $recipe)
+    public function destroy(Recipe $recipe, Request $request)
     {
-        $recipe->delete();
-        return new RecipeResource($recipe);
+        $user = $request->user();
+        $user->recipes()->where('id', $recipe->id)->delete();
     }
 }

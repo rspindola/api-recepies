@@ -15,6 +15,7 @@ class CreateRecipesTable extends Migration
     {
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('category_id');
             $table->string('name');
             $table->string('slug');
@@ -23,6 +24,7 @@ class CreateRecipesTable extends Migration
             $table->string('image')->default("icon_default.png");
             $table->timestamps();
 
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('category_id')->references('id')->on('categories');
         });
     }

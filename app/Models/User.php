@@ -74,6 +74,14 @@ class User extends Authenticatable
     }
 
     /**
+     * Get all of cards for the user.
+     */
+    public function recipes()
+    {
+        return $this->hasMany(Recipe::class);
+    }
+
+    /**
      * Get all of favorite recipes for the user.
      */
     public function favorites()

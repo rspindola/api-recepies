@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\Api\Auth\LoginRequest;
 use App\Http\Requests\Api\User\{ChangePasswordRequest, UserRequest, CheckEmailRequest};
+use App\Http\Resources\User\UserRecipeResource;
 use App\Http\Resources\User\UserResource;
 use App\Http\Services\User\UserService;
 
@@ -42,6 +43,18 @@ class UserController extends Controller
     public function getMe(Request $request)
     {
         return new UserResource($request->user());
+    }
+
+    /**
+     * Obtém as informações do usuário autenticado.
+     *
+     * @param Request $request
+     * @return UserResource $user
+     */
+    public function getRecipesMe(Request $request)
+    {
+        $recipes = $request->user()->with('recipes')->get();
+        return UserRecipeResource::collection($recipes);
     }
 
     /**

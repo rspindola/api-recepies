@@ -1645,6 +1645,13 @@ define({ "api": [
           },
           {
             "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "ingredients",
+            "description": "<p>Listagem com os ingredientes da receita.</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "Timestamp",
             "optional": false,
             "field": "created_at",
@@ -1836,23 +1843,17 @@ define({ "api": [
           },
           {
             "group": "Success 200",
-            "type": "Timestamp",
-            "optional": false,
-            "field": "created_at",
-            "description": "<p>Momento de criação da receita.</p>"
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
             "type": "Array",
             "optional": false,
             "field": "ingredients",
             "description": "<p>Listagem com os ingredientes da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Timestamp",
+            "optional": false,
+            "field": "created_at",
+            "description": "<p>Momento de criação da receita.</p>"
           }
         ]
       }
@@ -1875,15 +1876,6 @@ define({ "api": [
             "optional": false,
             "field": "recipe",
             "description": "<p>ID da receita</p>"
-          }
-        ],
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Array",
-            "optional": false,
-            "field": "ingredients",
-            "description": "<p>Listagem com os ingredientes da receita.</p>"
           }
         ]
       }
@@ -1939,6 +1931,13 @@ define({ "api": [
             "optional": false,
             "field": "slug",
             "description": "<p>URL do caminho da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "ingredients",
+            "description": "<p>Listagem com os ingredientes da receita.</p>"
           },
           {
             "group": "Success 200",
@@ -2254,36 +2253,6 @@ define({ "api": [
             "field": "user",
             "description": "<p>ID do usuário ou use <code>me</code> para utilizar o usuário autenticado</p>"
           }
-        ],
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "name",
-            "description": "<p>Nome do usuário.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "avatar",
-            "description": "<p>Avatar do usuário.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "phone",
-            "description": "<p>Celular do usuário.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "gender",
-            "description": "<p>Sexo do usuário. (M, F)</p>"
-          }
         ]
       }
     },
@@ -2372,6 +2341,201 @@ define({ "api": [
             "optional": false,
             "field": "created_at",
             "description": "<p>Momento de criação do usuário.</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
+    "url": "/users/:user/recipes",
+    "title": "Obter Receitas",
+    "description": "<p>Obtém as receitas do usuário</p>",
+    "name": "ObterReceitas",
+    "group": "Usuário",
+    "version": "0.0.1",
+    "parameter": {
+      "fields": {
+        "URL": [
+          {
+            "group": "URL",
+            "type": "Number",
+            "optional": false,
+            "field": "user",
+            "description": "<p>ID do usuário ou use <code>me</code> para utilizar o usuário autenticado</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "user.id",
+            "description": "<p>ID do usuário.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "user.name",
+            "description": "<p>Nome do usuário.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "user.email",
+            "description": "<p>Email do usuário.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "user.gender",
+            "description": "<p>Gênero do usuário.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "user.avatar",
+            "description": "<p>URL do avatar do usuário.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "user.phone",
+            "description": "<p>Telefone do usuário.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "user.origin",
+            "description": "<p>Origem da criação do usuário.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "user.status",
+            "description": "<p>Situação do usuário.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "user.recipes",
+            "description": "<p>Receitas.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "user.recipes.id",
+            "description": "<p>ID da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "user.recipes.name",
+            "description": "<p>Nome da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "user.recipes.description",
+            "description": "<p>Descrição da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "user.recipes.image",
+            "description": "<p>URL da imagem do icone da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "user.recipes.slug",
+            "description": "<p>URL do caminho da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "user.recipes.ingredients",
+            "description": "<p>Listagem com os ingredientes da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Timestamp",
+            "optional": false,
+            "field": "user.recipes.created_at",
+            "description": "<p>Momento de criação da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "user.recipes.category",
+            "description": "<p>Categoria da receita</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "user.recipes.category.id",
+            "description": "<p>ID da categoria.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "user.recipes.category.name",
+            "description": "<p>Nome da categoria.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "user.recipes.category.description",
+            "description": "<p>Descrição da categoria.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "user.recipes.category.icon",
+            "description": "<p>URL da imagem do icone da categoria.</p>"
+          }
+        ]
+      }
+    },
+    "filename": "routes/api/users.php",
+    "groupTitle": "Usuário",
+    "sampleRequest": [
+      {
+        "url": "https://recipes.renatospindolasistemas.com.br/api/users/:user/recipes"
+      }
+    ],
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Token gerado (access_token)</p>"
           }
         ]
       }
