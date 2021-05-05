@@ -20,8 +20,12 @@ class CreateRecipesTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('description')->nullable();
+            $table->integer('cooking_time');
+            $table->integer('portion');
             $table->json('ingredients');
+            $table->json('preparing');
             $table->string('image')->default("icon_default.png");
+            $table->text('note')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

@@ -10,7 +10,10 @@ class Recipe extends Model
 {
     use HasSlug;
 
-    protected $fillable = ['category_id', 'name', 'description', 'image', 'slug', 'ingredients'];
+    protected $fillable = [
+        'category_id', 'name', 'description', 'cooking_time', 'portion',
+        'preparing', 'note', 'image', 'slug', 'ingredients'
+    ];
 
     protected $hidden = [
         'image'
@@ -21,6 +24,7 @@ class Recipe extends Model
     ];
 
     protected $casts = [
+        'preparing' => 'array',
         'ingredients' => 'array',
     ];
 

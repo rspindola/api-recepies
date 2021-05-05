@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(OauthClientTableSeeder::class);
         $this->call(UserAdminSeeder::class);
         $this->call(CategorySeeder::class);
+        $this->call(RecipeSeeder::class);
     }
 }
