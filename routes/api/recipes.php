@@ -6,12 +6,16 @@ use Illuminate\Support\Facades\Route;
 /**
  * @apiDefine RecipeResourceSuccess
  * @apiSuccess {Number} id ID da receita.
- * @apiSuccess {Object[]} category Categoria da receita
+ * @apiSuccess {Object} category Categoria da receita
  * @apiSuccess {String} name Nome da receita.
  * @apiSuccess {String} description Descrição da receita.
  * @apiSuccess {String} image URL da imagem do icone da receita.
- * @apiSuccess {String} slug URL do caminho da receita.
+ * @apiSuccess {Number} cooking_time Tempo de preparo da receita.
+ * @apiSuccess {Number} portion Número de porções da receita.
+ * @apiSuccess {Array} preparing Passo a passo do preparo da receita.
  * @apiSuccess {Array} ingredients Listagem com os ingredientes da receita.
+ * @apiSuccess {String} note Anotações de dicas sobre a receita.
+ * @apiSuccess {String} slug URL do caminho da receita.
  * @apiSuccess {Timestamp} created_at Momento de criação da receita.
  */
 

@@ -1623,7 +1623,7 @@
           },
           {
             "group": "Success 200",
-            "type": "Object[]",
+            "type": "Object",
             "optional": false,
             "field": "category",
             "description": "<p>Categoria da receita</p>"
@@ -1651,10 +1651,24 @@
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "Number",
             "optional": false,
-            "field": "slug",
-            "description": "<p>URL do caminho da receita.</p>"
+            "field": "cooking_time",
+            "description": "<p>Tempo de preparo da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "portion",
+            "description": "<p>Número de porções da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "preparing",
+            "description": "<p>Passo a passo do preparo da receita.</p>"
           },
           {
             "group": "Success 200",
@@ -1662,6 +1676,20 @@
             "optional": false,
             "field": "ingredients",
             "description": "<p>Listagem com os ingredientes da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "note",
+            "description": "<p>Anotações de dicas sobre a receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "slug",
+            "description": "<p>URL do caminho da receita.</p>"
           },
           {
             "group": "Success 200",
@@ -1821,7 +1849,7 @@
           },
           {
             "group": "Success 200",
-            "type": "Object[]",
+            "type": "Object",
             "optional": false,
             "field": "category",
             "description": "<p>Categoria da receita</p>"
@@ -1849,10 +1877,24 @@
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "Number",
             "optional": false,
-            "field": "slug",
-            "description": "<p>URL do caminho da receita.</p>"
+            "field": "cooking_time",
+            "description": "<p>Tempo de preparo da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "portion",
+            "description": "<p>Número de porções da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "preparing",
+            "description": "<p>Passo a passo do preparo da receita.</p>"
           },
           {
             "group": "Success 200",
@@ -1860,6 +1902,20 @@
             "optional": false,
             "field": "ingredients",
             "description": "<p>Listagem com os ingredientes da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "note",
+            "description": "<p>Anotações de dicas sobre a receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "slug",
+            "description": "<p>URL do caminho da receita.</p>"
           },
           {
             "group": "Success 200",
@@ -1899,7 +1955,7 @@
           },
           {
             "group": "Success 200",
-            "type": "Object[]",
+            "type": "Object",
             "optional": false,
             "field": "category",
             "description": "<p>Categoria da receita</p>"
@@ -1927,10 +1983,24 @@
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "Number",
             "optional": false,
-            "field": "slug",
-            "description": "<p>URL do caminho da receita.</p>"
+            "field": "cooking_time",
+            "description": "<p>Tempo de preparo da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "portion",
+            "description": "<p>Número de porções da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "preparing",
+            "description": "<p>Passo a passo do preparo da receita.</p>"
           },
           {
             "group": "Success 200",
@@ -1938,6 +2008,20 @@
             "optional": false,
             "field": "ingredients",
             "description": "<p>Listagem com os ingredientes da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "note",
+            "description": "<p>Anotações de dicas sobre a receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "slug",
+            "description": "<p>URL do caminho da receita.</p>"
           },
           {
             "group": "Success 200",
@@ -1990,7 +2074,7 @@
           },
           {
             "group": "Success 200",
-            "type": "Object[]",
+            "type": "Object",
             "optional": false,
             "field": "category",
             "description": "<p>Categoria da receita</p>"
@@ -2018,10 +2102,24 @@
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "Number",
             "optional": false,
-            "field": "slug",
-            "description": "<p>URL do caminho da receita.</p>"
+            "field": "cooking_time",
+            "description": "<p>Tempo de preparo da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "portion",
+            "description": "<p>Número de porções da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "preparing",
+            "description": "<p>Passo a passo do preparo da receita.</p>"
           },
           {
             "group": "Success 200",
@@ -2029,6 +2127,20 @@
             "optional": false,
             "field": "ingredients",
             "description": "<p>Listagem com os ingredientes da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "note",
+            "description": "<p>Anotações de dicas sobre a receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "slug",
+            "description": "<p>URL do caminho da receita.</p>"
           },
           {
             "group": "Success 200",
@@ -2081,7 +2193,7 @@
           },
           {
             "group": "Success 200",
-            "type": "Object[]",
+            "type": "Object",
             "optional": false,
             "field": "category",
             "description": "<p>Categoria da receita</p>"
@@ -2109,10 +2221,24 @@
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "Number",
             "optional": false,
-            "field": "slug",
-            "description": "<p>URL do caminho da receita.</p>"
+            "field": "cooking_time",
+            "description": "<p>Tempo de preparo da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "portion",
+            "description": "<p>Número de porções da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "preparing",
+            "description": "<p>Passo a passo do preparo da receita.</p>"
           },
           {
             "group": "Success 200",
@@ -2120,6 +2246,20 @@
             "optional": false,
             "field": "ingredients",
             "description": "<p>Listagem com os ingredientes da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "note",
+            "description": "<p>Anotações de dicas sobre a receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "slug",
+            "description": "<p>URL do caminho da receita.</p>"
           },
           {
             "group": "Success 200",
