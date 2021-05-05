@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\Recipe\RecipeRequest;
+use App\Http\Resources\Recipe\RecipeCategoryResource;
 use Illuminate\Http\Request;
 use App\Http\Resources\Recipe\RecipeResource;
+use App\Models\Category;
 use App\Models\Recipe;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -21,7 +23,7 @@ class RecipeController extends Controller
     public function getMe(Request $request)
     {
         $user = $request->user();
-        return RecipeResource::collection($user->recipes);
+        return RecipeCategoryResource::collection($user->recipes);
     }
 
     /**
@@ -31,7 +33,7 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        return RecipeResource::collection(Recipe::all());
+        return RecipeCategoryResource::collection(Recipe::all());
     }
 
     /**
@@ -54,7 +56,7 @@ class RecipeController extends Controller
 
         $recipe = $user->recipes()->create($data);
 
-        return new RecipeResource($recipe);
+        return new RecipeCategoryResource($recipe);
     }
 
     /**
@@ -63,13 +65,35 @@ class RecipeController extends Controller
      * @param  \App\Models\Recipe  $recipe
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Recipe $recipe)
+    public function findById(Request $request, Recipe $recipe)
     {
-        $user = $request->user();
-        $recipe = $user->recipes()->find($recipe->id);
-        return new RecipeResource($recipe);
+        $recipe = Recipe::find($recipe->id);
+        return new RecipeCategoryResource($recipe);
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Recipe  $recipe
+     * @return \Illuminate\Http\Response
+     */
+    public function findBySlug($slug)
+    {
+        $recipe = Recipe::where('slug', $slug)->first();
+        return new RecipeCategoryResource($recipe);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Recipe  $recipe
+     * @return \Illuminate\Http\Response
+     */
+    public function findByCategory(Category $category)
+    {
+        $recipes = Recipe::where('category_id', $category->id)->get();
+        return RecipeResource::collection($recipes);
+    }
 
     /**
      * Update the specified resource in storage.
@@ -97,7 +121,7 @@ class RecipeController extends Controller
         $user->recipes()->find($recipe->id)->update($data);
         $recipe->refresh();
 
-        return new RecipeResource($recipe);
+        return new RecipeCategoryResource($recipe);
     }
 
     /**

@@ -27,8 +27,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/recipes', [RecipeController::class, 'index']);
 
 /**
- * @api {get} /recipes/:recipe Obter Receita
- * @apiDescription Obtém a receita no sistema pelo id
+ * @api {get} /recipes/category/:category Listar Receitas por Categoria
+ * @apiDescription Obtém a listagrem de todas as receitas de determinada categoria
+ * @apiName ListarReceitasByCategory
+ * @apiGroup Receita
+ * @apiVersion 0.0.1
+ *
+ * @apiUse RecipeResourceSuccess
+ */
+Route::get('/recipes/category/{category}', [RecipeController::class, 'findByCategory']);
+
+/**
+ * @api {get} /recipes/slug/:slug Obter Receita (Slug)
+ * @apiDescription Obtém a receita no sistema pelo slug
  * @apiName ObterReceita
  * @apiGroup Receita
  * @apiVersion 0.0.1
@@ -37,7 +48,20 @@ Route::get('/recipes', [RecipeController::class, 'index']);
  *
  * @apiUse RecipeResourceSuccess
  */
-Route::get('/recipes/{recipe}', [RecipeController::class, 'show']);
+Route::get('/recipes/slug/{slug}', [RecipeController::class, 'findBySlug']);
+
+/**
+ * @api {get} /recipes/id/:id Obter Receita (Id)
+ * @apiDescription Obtém a receita no sistema pelo id
+ * @apiName ObterReceitaById
+ * @apiGroup Receita
+ * @apiVersion 0.0.1
+ *
+ * @apiParam (URL) {Number} recipe ID da receita
+ *
+ * @apiUse RecipeResourceSuccess
+ */
+Route::get('/recipes/id/{recipe}', [RecipeController::class, 'findById']);
 
 Route::middleware('auth:api')->group(function () {
     /**

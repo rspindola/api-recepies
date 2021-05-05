@@ -981,7 +981,7 @@
           },
           {
             "group": "Parameter",
-            "type": "String",
+            "type": "File",
             "optional": false,
             "field": "icon",
             "description": "<p>URL da imagem do icone da categoria.</p>"
@@ -1094,7 +1094,7 @@
           },
           {
             "group": "Parameter",
-            "type": "String",
+            "type": "File",
             "optional": false,
             "field": "icon",
             "description": "<p>URL da imagem do icone da categoria.</p>"
@@ -1874,9 +1874,87 @@
   },
   {
     "type": "get",
-    "url": "/recipes/:recipe",
-    "title": "Obter Receita",
-    "description": "<p>Obtém a receita no sistema pelo id</p>",
+    "url": "/recipes/category/:category",
+    "title": "Listar Receitas por Categoria",
+    "description": "<p>Obtém a listagrem de todas as receitas de determinada categoria</p>",
+    "name": "ListarReceitasByCategory",
+    "group": "Receita",
+    "version": "0.0.1",
+    "filename": "routes/api/recipes.php",
+    "groupTitle": "Receita",
+    "sampleRequest": [
+      {
+        "url": "https://recipes.renatospindolasistemas.com.br/api/recipes/category/:category"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>ID da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "category",
+            "description": "<p>Categoria da receita</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Nome da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>Descrição da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "image",
+            "description": "<p>URL da imagem do icone da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "slug",
+            "description": "<p>URL do caminho da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "ingredients",
+            "description": "<p>Listagem com os ingredientes da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Timestamp",
+            "optional": false,
+            "field": "created_at",
+            "description": "<p>Momento de criação da receita.</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
+    "url": "/recipes/slug/:slug",
+    "title": "Obter Receita (Slug)",
+    "description": "<p>Obtém a receita no sistema pelo slug</p>",
     "name": "ObterReceita",
     "group": "Receita",
     "version": "0.0.1",
@@ -1897,7 +1975,98 @@
     "groupTitle": "Receita",
     "sampleRequest": [
       {
-        "url": "https://recipes.renatospindolasistemas.com.br/api/recipes/:recipe"
+        "url": "https://recipes.renatospindolasistemas.com.br/api/recipes/slug/:slug"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>ID da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "category",
+            "description": "<p>Categoria da receita</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Nome da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>Descrição da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "image",
+            "description": "<p>URL da imagem do icone da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "slug",
+            "description": "<p>URL do caminho da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "ingredients",
+            "description": "<p>Listagem com os ingredientes da receita.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Timestamp",
+            "optional": false,
+            "field": "created_at",
+            "description": "<p>Momento de criação da receita.</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
+    "url": "/recipes/id/:id",
+    "title": "Obter Receita (Id)",
+    "description": "<p>Obtém a receita no sistema pelo id</p>",
+    "name": "ObterReceitaById",
+    "group": "Receita",
+    "version": "0.0.1",
+    "parameter": {
+      "fields": {
+        "URL": [
+          {
+            "group": "URL",
+            "type": "Number",
+            "optional": false,
+            "field": "recipe",
+            "description": "<p>ID da receita</p>"
+          }
+        ]
+      }
+    },
+    "filename": "routes/api/recipes.php",
+    "groupTitle": "Receita",
+    "sampleRequest": [
+      {
+        "url": "https://recipes.renatospindolasistemas.com.br/api/recipes/id/:id"
       }
     ],
     "success": {
